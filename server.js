@@ -10,16 +10,16 @@ const server = http.createServer((req, res) => {
     if (urlpath === '/' || urlpath === '/home'){
         res.statusCode = 200;
         res.setHeader = {'content-Type': 'text/html'};
-        fs.createReadStream('./pages/home.html');
+        fs.createReadStream('./pages/home.html').pipe(res);
     }else if (urlpath === '/about'){
         res.statusCode = 200;
         res.setHeader = {'content-Type': 'text/html'};
-        fs.createReadStream('./pages/about.html');
+        fs.createReadStream('./pages/about.html').pipe(res);
     }else if (urlpath === '/contact'){
       res.statusCode = 200;
       res.setHeader = { 'content-Type': 'text/html'};
 
-      fs.createReadStream('./pages/contact.html')
+      fs.createReadStream('./pages/contact.html').pipe(res);
     }
 });
 
